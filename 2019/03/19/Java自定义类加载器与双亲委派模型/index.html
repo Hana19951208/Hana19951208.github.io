@@ -86,13 +86,13 @@
 
 
 
-<meta name="description" content="title: Java自定义类加载器与双亲委派模型 其实，双亲委派模型并不复杂。自定义类加载器也不难！随便从网上搜一下就能搜出一大把结果，然后copy一下就能用。但是，如果每次想自定义类加载器就必须搜一遍别人的文章，然后复制，这样显然不行。可是自定义类加载器又不经常用，时间久了容易忘记。相信你经常会记不太清loadClass、findClass、defineClass这些函数我到底应该重写哪一个？">
+<meta name="description" content="其实，双亲委派模型并不复杂。自定义类加载器也不难！随便从网上搜一下就能搜出一大把结果，然后copy一下就能用。但是，如果每次想自定义类加载器就必须搜一遍别人的文章，然后复制，这样显然不行。可是自定义类加载器又不经常用，时间久了容易忘记。相信你经常会记不太清loadClass、findClass、defineClass这些函数我到底应该重写哪一个？它们主要是做什么的？本文大致分析了各个函数的流程，目">
 <meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hana的博客">
+<meta property="og:title" content="Java自定义类加载器与双亲委派模型">
 <meta property="og:url" content="http://yoursite.com/2019/03/19/Java自定义类加载器与双亲委派模型/index.html">
 <meta property="og:site_name" content="Hana的博客">
-<meta property="og:description" content="title: Java自定义类加载器与双亲委派模型 其实，双亲委派模型并不复杂。自定义类加载器也不难！随便从网上搜一下就能搜出一大把结果，然后copy一下就能用。但是，如果每次想自定义类加载器就必须搜一遍别人的文章，然后复制，这样显然不行。可是自定义类加载器又不经常用，时间久了容易忘记。相信你经常会记不太清loadClass、findClass、defineClass这些函数我到底应该重写哪一个？">
+<meta property="og:description" content="其实，双亲委派模型并不复杂。自定义类加载器也不难！随便从网上搜一下就能搜出一大把结果，然后copy一下就能用。但是，如果每次想自定义类加载器就必须搜一遍别人的文章，然后复制，这样显然不行。可是自定义类加载器又不经常用，时间久了容易忘记。相信你经常会记不太清loadClass、findClass、defineClass这些函数我到底应该重写哪一个？它们主要是做什么的？本文大致分析了各个函数的流程，目">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
 <meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
@@ -100,10 +100,10 @@
 <meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
 <meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
 <meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
-<meta property="og:updated_time" content="2019-03-18T09:51:22.000Z">
+<meta property="og:updated_time" content="2019-03-19T14:54:30.893Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hana的博客">
-<meta name="twitter:description" content="title: Java自定义类加载器与双亲委派模型 其实，双亲委派模型并不复杂。自定义类加载器也不难！随便从网上搜一下就能搜出一大把结果，然后copy一下就能用。但是，如果每次想自定义类加载器就必须搜一遍别人的文章，然后复制，这样显然不行。可是自定义类加载器又不经常用，时间久了容易忘记。相信你经常会记不太清loadClass、findClass、defineClass这些函数我到底应该重写哪一个？">
+<meta name="twitter:title" content="Java自定义类加载器与双亲委派模型">
+<meta name="twitter:description" content="其实，双亲委派模型并不复杂。自定义类加载器也不难！随便从网上搜一下就能搜出一大把结果，然后copy一下就能用。但是，如果每次想自定义类加载器就必须搜一遍别人的文章，然后复制，这样显然不行。可是自定义类加载器又不经常用，时间久了容易忘记。相信你经常会记不太清loadClass、findClass、defineClass这些函数我到底应该重写哪一个？它们主要是做什么的？本文大致分析了各个函数的流程，目">
 <meta name="twitter:image" content="https://common.cnblogs.com/images/copycode.gif">
 
 
@@ -159,7 +159,7 @@
 <!-- fontawesome5 -->
 <link href="/lib/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" type="text/css">
 
-  <title> | Hana的博客</title>
+  <title>Java自定义类加载器与双亲委派模型 | Hana的博客</title>
   
 
 
@@ -324,7 +324,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline"></h2>
+          <h2 class="post-title" itemprop="name headline">Java自定义类加载器与双亲委派模型</h2>
         
 
         <div class="post-meta">
@@ -408,8 +408,7 @@
       
 
       
-        <p>title: <a href="https://www.cnblogs.com/wxd0108/p/6681618.html" target="_blank" rel="noopener">Java自定义类加载器与双亲委派模型</a></p>
-<p>其实，双亲委派模型并不复杂。自定义类加载器也不难！随便从网上搜一下就能搜出一大把结果，然后<code>copy</code>一下就能用。但是，如果每次想自定义类加载器就必须搜一遍别人的文章，然后复制，这样显然不行。可是自定义类加载器又不经常用，时间久了容易忘记。相信你经常会记不太清<code>loadClass</code>、<code>findClass</code>、<code>defineClass</code>这些函数我到底应该重写哪一个？它们主要是做什么的？本文大致分析了各个函数的流程，目的就是让你看完之后，难以忘记！或者说，延长你对自定义类加载器的记忆时间！随时随地想自定义就自定义！</p>
+        <p>其实，双亲委派模型并不复杂。自定义类加载器也不难！随便从网上搜一下就能搜出一大把结果，然后<code>copy</code>一下就能用。但是，如果每次想自定义类加载器就必须搜一遍别人的文章，然后复制，这样显然不行。可是自定义类加载器又不经常用，时间久了容易忘记。相信你经常会记不太清<code>loadClass</code>、<code>findClass</code>、<code>defineClass</code>这些函数我到底应该重写哪一个？它们主要是做什么的？本文大致分析了各个函数的流程，目的就是让你看完之后，难以忘记！或者说，延长你对自定义类加载器的记忆时间！随时随地想自定义就自定义！</p>
 <h1 id="1-双亲委派模型"><a href="#1-双亲委派模型" class="headerlink" title="1. 双亲委派模型"></a>1. 双亲委派模型</h1><p>关于双亲委派模型，网上的资料有很多。我这里只简单的描述一下，就当是复习。</p>
 <h2 id="1-1-什么是双亲委派模型？"><a href="#1-1-什么是双亲委派模型？" class="headerlink" title="1.1 什么是双亲委派模型？"></a>1.1 什么是双亲委派模型？</h2><p>首先，先要知道什么是类加载器。简单说，类加载器就是根据指定全限定名称将<code>class</code>文件加载到<code>JVM</code>内存，转为<code>Class</code>对象。如果站在<code>JVM</code>的角度来看，只存在两种类加载器:</p>
 <blockquote>
@@ -504,7 +503,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link:</strong>
-    <a href="http://yoursite.com/2019/03/19/Java自定义类加载器与双亲委派模型/" title>http://yoursite.com/2019/03/19/Java自定义类加载器与双亲委派模型/</a>
+    <a href="http://yoursite.com/2019/03/19/Java自定义类加载器与双亲委派模型/" title="Java自定义类加载器与双亲委派模型">http://yoursite.com/2019/03/19/Java自定义类加载器与双亲委派模型/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice: </strong>
