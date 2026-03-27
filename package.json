@@ -1,0 +1,7 @@
+{
+  "name": "hana19951208-github-io",
+  "private": true,
+  "scripts": {
+    "test": "node --test"
+  }
+}

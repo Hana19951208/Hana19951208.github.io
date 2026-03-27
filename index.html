@@ -1,99 +1,188 @@
-<!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-	<title>Our Love Story</title>
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-	<style type="text/css">
-		@font-face {
-			font-family: digit;
-			src: url('digital-7_mono.ttf') format("truetype");
-		}
-	</style>
-	<link href="css/default.css" type="text/css" rel="stylesheet">
-	<script type="text/javascript" src="js/jquery.js"></script>
-	<script type="text/javascript" src="js/garden.js"></script>
-    <script type="text/javascript" src="js/functions.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>吴方恩 | Hana</title>
+  <meta
+    name="description"
+    content="吴方恩的个人主页。在技术与表达之间，长期创作。"
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@500;700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="css/default.css">
 </head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="masthead" href="#hero" aria-label="返回首页">
+        <span class="masthead__latin">WU FANGEN / HANA</span>
+        <span class="masthead__cn">吴方恩</span>
+      </a>
+      <nav class="site-nav" aria-label="页面导航">
+        <a href="#works">Works</a>
+        <a href="#writing">Writing</a>
+        <a href="#about">About</a>
+      </nav>
+    </header>
 
-<body background="image/2.png" style=" background-repeat:no-repeat ;background-size:100% 100%;
-background-attachment: fixed;">
-	<div id="mainDiv">
-		<div id="content">
-			<div id="code">
-				<span class="comments">/**</span><br />
-				<span class="space"/><span class="comments">* I'm a programmer,</span><br />
-				<span class="space"/><span class="comments">* so I write some code to celebrate our 1st anniversary.</span><br />
-				<span class="space"/><span class="comments">*/</span><br />
-				Boy i = <span class="keyword">new</span> Boy(<span class="string">"FangEn.Wu"</span>);<br />
-				Girl u = <span class="keyword">new</span> Girl(<span class="string">"HaiRong.Lu"</span>);<br />
-				<span class="comments">// Jul 29, 2021, I told you I love you. </span><br />
-				i.love(u);<br />
-				<span class="comments">// Luckily, you accepted and became my girlfriend eversince.</span><br />
-				u.accepted();<br />
-				<span class="comments">// Since then, I miss u every day.</span><br />
-				i.miss(u);<br />
-				<span class="comments">// And take care of u and our love.</span><br />
-				i.takeCareOf(u);<br />
-				<span class="comments">// You say that you won't be so easy to marry me.</span><br />
-				<span class="comments">// So I keep waiting and I have confidence that you will.</span><br />
-				<span class="keyword">boolean</span> isDifficult = <span class="keyword">true</span>;<br />
-				<span class="keyword">while</span> (isDifficult) {<br />
-				<span class="placeholder"/>i.fightFor(u);<br />
-				<span class="placeholder"/><span class="comments">// I think it is an important decision</span><br />
-				<span class="placeholder"/><span class="comments">// and you should think it over.</span><br />
-				<span class="placeholder"/>isDifficult = u.thinkOver();<br />
-				}<br />
-				<span class="comments">// After a romantic wedding, we will live happily ever after.</span><br />
-				i.marry(u);<br />
-				i.liveHappilyWith(u);<br />
-			</div>
-			<div id="loveHeart">
-				<canvas id="garden"></canvas>
-				<div id="words">
-					<div id="messages">
-						Rong, I have fallen in love with you for
-						<div id="elapseClock"></div>
-					</div>
-					<div id="loveu">
-						Love u forever and ever.<br/>
-						<div class="signature">- Hana</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<script type="text/javascript">
-		var offsetX = $("#loveHeart").width() / 2;
-		var offsetY = $("#loveHeart").height() / 2 - 55;
-		var together = new Date();
-		together.setFullYear(2020, 7, 29);
-		together.setHours(20);
-		together.setMinutes(0);
-		together.setSeconds(0);
-		together.setMilliseconds(0);
-		
-		if (!document.createElement('canvas').getContext) {
-			var msg = document.createElement("div");
-			msg.id = "errorMsg";
-			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
-			document.body.appendChild(msg);
-			$("#code").css("display", "none")
-			$("#copyright").css("position", "absolute");
-			$("#copyright").css("bottom", "10px");
-		    document.execCommand("stop");
-		} else {
-			setTimeout(function () {
-				startHeartAnimation();
-			}, 5000);
+    <main>
+      <section class="hero reveal" id="hero">
+        <div class="hero__meta">Independent Creator / Builder / Writer</div>
+        <h1>吴方恩</h1>
+        <p class="hero__name">Hana</p>
+        <p class="hero__statement">在技术与表达之间，长期创作。</p>
+        <ul class="hero__tags" aria-label="身份标签">
+          <li>独立创作者</li>
+          <li>AI 工程实践</li>
+          <li>内容系统</li>
+          <li>个人项目</li>
+        </ul>
+        <div class="hero__note">
+          我把产品、自动化、可视化表达与内容生产，做成一组可以持续推进的作品。
+        </div>
+      </section>
 
-			timeElapse(together);
-			setInterval(function () {
-				timeElapse(together);
-			}, 500);
+      <section class="section reveal" id="works">
+        <div class="section__heading">
+          <p class="section__eyebrow">Works</p>
+          <h2>近期创作</h2>
+          <p class="section__intro">
+            不是项目列表，而是我现在最清晰的四条创作主线。
+          </p>
+        </div>
 
-			adjustCodePosition();
-			$("#code").typewriter();
-		}
-	</script>
+        <div class="works-list">
+          <article class="work-track" tabindex="0">
+            <div class="work-track__index">01</div>
+            <div class="work-track__body">
+              <div class="work-track__title-row">
+                <h3>DailyWallpaperHub</h3>
+                <span class="work-track__status">Live</span>
+              </div>
+              <p class="work-track__description">
+                把自动归档、视觉素材与个人审美整合成一个长期更新的产品系统。
+              </p>
+              <p class="work-track__repos">
+                <a href="https://github.com/Hana19951208/DailyWallpaperHub" target="_blank" rel="noreferrer">DailyWallpaperHub</a>
+                <span>/</span>
+                <a href="https://github.com/Hana19951208/BlogImagesBox" target="_blank" rel="noreferrer">BlogImagesBox</a>
+              </p>
+            </div>
+          </article>
+
+          <article class="work-track" tabindex="0">
+            <div class="work-track__index">02</div>
+            <div class="work-track__body">
+              <div class="work-track__title-row">
+                <h3>Manim</h3>
+                <span class="work-track__status">Study</span>
+              </div>
+              <p class="work-track__description">
+                用更准确的可视化语言，把知识结构和叙述节奏做得更清楚。
+              </p>
+              <p class="work-track__repos">
+                <a href="https://github.com/Hana19951208/manim-study" target="_blank" rel="noreferrer">manim-study</a>
+              </p>
+            </div>
+          </article>
+
+          <article class="work-track" tabindex="0">
+            <div class="work-track__index">03</div>
+            <div class="work-track__body">
+              <div class="work-track__title-row">
+                <h3>AI</h3>
+                <span class="work-track__status">Building</span>
+              </div>
+              <p class="work-track__description">
+                围绕内容理解、视频、播客与研究工具，持续做一系列可落地实验。
+              </p>
+              <p class="work-track__repos">
+                <a href="https://github.com/Hana19951208/youtube-insight" target="_blank" rel="noreferrer">youtube-insight</a>
+                <span>/</span>
+                <a href="https://github.com/Hana19951208/video-pipeline" target="_blank" rel="noreferrer">video-pipeline</a>
+                <span>/</span>
+                <a href="https://github.com/Hana19951208/podcast-video-generator-skill" target="_blank" rel="noreferrer">podcast-video-generator-skill</a>
+              </p>
+            </div>
+          </article>
+
+          <article class="work-track" tabindex="0">
+            <div class="work-track__index">04</div>
+            <div class="work-track__body">
+              <div class="work-track__title-row">
+                <h3>Agent / Skills</h3>
+                <span class="work-track__status">Active</span>
+              </div>
+              <p class="work-track__description">
+                把工作流、自动化和个人方法论封装成可复用的 Agent 与技能体系。
+              </p>
+              <p class="work-track__repos">
+                <a href="https://github.com/Hana19951208/EVA-skills" target="_blank" rel="noreferrer">EVA-skills</a>
+                <span>/</span>
+                <a href="https://github.com/Hana19951208/claude-code-assistant-skill" target="_blank" rel="noreferrer">claude-code-assistant-skill</a>
+                <span>/</span>
+                <a href="https://github.com/Hana19951208/openclaw-win11-remote-skill" target="_blank" rel="noreferrer">openclaw-win11-remote-skill</a>
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal" id="writing">
+        <div class="section__heading">
+          <p class="section__eyebrow">Writing</p>
+          <h2>表达出口</h2>
+          <p class="section__intro">
+            写作、内容系统和播客实验，是我把技术继续变成表达的方式。
+          </p>
+        </div>
+
+        <div class="writing-grid">
+          <a class="writing-entry" href="https://my-blog-hana.vercel.app" target="_blank" rel="noreferrer">
+            <span class="writing-entry__label">Blog</span>
+            <strong>my-blog</strong>
+            <p>记录产品、技术和长期创作中的判断。</p>
+          </a>
+          <a class="writing-entry" href="https://github.com/Hana19951208/my-wechat" target="_blank" rel="noreferrer">
+            <span class="writing-entry__label">Content System</span>
+            <strong>my-wechat</strong>
+            <p>把公众号创作助手和内容生产线串成工作流。</p>
+          </a>
+          <a class="writing-entry" href="https://github.com/Hana19951208/fangenwu-podcast-site" target="_blank" rel="noreferrer">
+            <span class="writing-entry__label">Audio / Video</span>
+            <strong>fangenwu-podcast-site</strong>
+            <p>继续探索播客、声音与网页叙事之间的连接方式。</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="section section--about reveal" id="about">
+        <div class="section__heading">
+          <p class="section__eyebrow">About</p>
+          <h2>关于我</h2>
+        </div>
+
+        <div class="about-layout">
+          <p class="about-copy">
+            我关注那些既能被真正使用、又带有明确表达意图的作品。近一段时间，我主要在做
+            AI、Agent、内容系统、可视化表达与个人产品。相比“展示我会什么”，我更在意把这些方向做成可以长期推进的东西。
+          </p>
+
+          <div class="about-links" aria-label="外部链接">
+            <a href="https://github.com/Hana19951208" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://docs.fangenwu.cn" target="_blank" rel="noreferrer">docs.fangenwu.cn</a>
+            <a href="http://docs.fangenwu.cn/DailyWallpaperHub/" target="_blank" rel="noreferrer">DailyWallpaperHub</a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/functions.js"></script>
 </body>
 </html>
